@@ -28,21 +28,21 @@
         <div id="signup">   
           <h1>Sign Up for Free</h1>
           
-          <form action="/" method="post">
+          <form action="sign_up.php" method="post">
           
           <div class="top-row">
             <div class="field-wrap">
               <label>
                 First Name<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text" required autocomplete="off"  name="user_name" />
             </div>
         
             <div class="field-wrap">
               <label>
                 Last Name<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="text"required autocomplete="off" name="user_surname" />
             </div>
           </div>
 
@@ -50,14 +50,22 @@
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input type="email"required autocomplete="off" name="user_email" />
+            <div>
+                <?php 
+                    // include "sign_up.php";
+                    // echo validate(); 
+                 ?>
+
+
+            </div>
           </div>
           
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password"required autocomplete="off" name="user_pass" />
           </div>
           
           <button type="submit" class="button button-block"/>Get Started</button>
@@ -69,25 +77,25 @@
         <div id="login">   
           <h1>Welcome Back!</h1>
           
-          <form action="/" method="post">
+          <form action="login.php" method="post">
           
             <div class="field-wrap">
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input type="email" name="user_email" required autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password" name="user_pass" required autocomplete="off"/>
           </div>
           
           
           
-          <button class="button button-block"/>Log In</button>
+          <button class="button button-block">Log In</button>
           
           </form>
 
