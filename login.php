@@ -1,10 +1,12 @@
-<?php 
+<?php
+
+	session_start(); 
 	include 'db.php';
  	$user_email=$_POST['user_email'];
  	$user_pass=$_POST['user_pass'];
 
 
- 	$sql = "SELECT user_email, user_pass FROM users";
+ 	$sql = "SELECT user_email, user_pass,user_name FROM users";
 
  	$query=	mysqli_query($connection,$sql);
  	
@@ -19,7 +21,8 @@
  				if(!$query2){
  					echo mysqli_error($connection);
  					}
- 					
+ 				$_SESSION['user_email']=$_POST['user_email'];
+ 				$_SESSION["user_name"]= "SAMRA"; //$row['user_name'];
  				header("Location: admin_page.php");
 
  		}
