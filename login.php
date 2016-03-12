@@ -20,13 +20,13 @@
  					echo mysqli_error($connection);
  					}
  					
- 				header("Location: success.php");
+ 				header("Location: admin_page.php");
 
  		}
- 			// else{
+ 			else{
  				
- 			// 	header("Location: index.php");
- 			// }
+ 				header("Location: index.php");
+ 			}
 
  	}
 
