@@ -3,22 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <title>Sign-Up/Login Form</title>
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-    
-    <link rel="stylesheet" href="css/normalize.css">
-
-    
-        <link rel="stylesheet" href="css/style.css">
-
-    
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>    
+    <link rel="stylesheet" href="css/normalize.css">    
+    <link rel="stylesheet" href="css/style.css"> 
     
     
   </head>
 
   <body>
 
-    <div class="form">
-      
+    <div class="form">      
       <ul class="tab-group">
         <li class="tab active"><a href="#signup">Sign Up</a></li>
         <li class="tab"><a href="#login">Log In</a></li>
@@ -51,14 +45,6 @@
               Email Address<span class="req">*</span>
             </label>
             <input type="email"required autocomplete="off" name="user_email" />
-            <div>
-                <?php 
-                    // include "sign_up.php";
-                    // echo validate(); 
-                 ?>
-
-
-            </div>
           </div>
           
           <div class="field-wrap">
@@ -91,8 +77,7 @@
               Password<span class="req">*</span>
             </label>
             <input type="password" name="user_pass" required autocomplete="off"/>
-          </div>
-          
+          </div>         
           
           
           <button class="button button-block">Log In</button>

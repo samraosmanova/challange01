@@ -2,36 +2,51 @@
 
 	session_start(); 
 	include 'db.php';
- 	$user_email=$_POST['user_email'];
- 	$user_pass=$_POST['user_pass'];
 
+	/*
+		assigning inputted data to global variables
+	 */
 
- 	$sql = "SELECT user_email, user_pass,user_name FROM users";
+ 	$user_email	=	$_POST['user_email'];
+ 	$user_pass	=	$_POST['user_pass'];
 
- 	$query=	mysqli_query($connection,$sql);
+ 	$sql 	=	"SELECT user_email, user_pass,user_name FROM users";
+ 	$query 	=	mysqli_query($connection,$sql);
  	
  	while($row=mysqli_fetch_assoc($query)){
+ 			/*
+ 				this if statement checks if user data(user_email,user_pass) exists in database users
+ 			 */
+ 			
  			if(($user_email==$row['user_email']) && ($user_pass==$row['user_pass'])){
- 				//echo "Logged in successfully";
+ 				/*
+ 					$now variable is defined for getting current date and assigning it to $user_last_log
+ 				 */
+ 				
  				$now = getdate();
  				$user_last_log= $now['year']."-".$now['mon']."-".$now['mday']." ".$now['hours'].":".$now['minutes'].":".$now['seconds'];
- 				$date = $row['user_email'];
- 				$sql2="UPDATE users SET user_last_log ='$user_last_log'  WHERE user_email='$date'";
+
+ 				/*
+ 					updating "users" table by pushing last login datetime 
+ 				 */
+ 				
+ 				$email = $row['user_email'];
+ 				$sql2="UPDATE users SET user_last_log ='$user_last_log'  WHERE user_email='$email'";
  				$query2 = mysqli_query($connection,$sql2);
- 				if(!$query2){
- 					echo mysqli_error($connection);
- 					}
- 				$_SESSION['user_email']=$_POST['user_email'];
- 				$_SESSION["user_name"]= "SAMRA"; //$row['user_name'];
+ 				// $_SESSION['user_email']=$_POST['user_email'];
+ 				// $_SESSION["user_name"]= "SAMRA"; //$row['user_name'];
+ 				
+ 				/*
+ 					redirecting to admin_page after succesful login
+ 				 */
  				header("Location: admin_page.php");
 
- 		}
- 			else{
- 				
+ 		}else{
+ 				/*
+ 					if login failed going back to index.php
+ 				 */ 				
  				header("Location: index.php");
  			}
 
  	}
-
-
  ?>
